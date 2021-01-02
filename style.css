@@ -1,0 +1,266 @@
+body{
+    background-color: #99CCFF !important;
+;
+}
+/*grid konteiner
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'menu header header header header header'
+    'menu main main main main main'
+    'footer footer footer footer footer footer'; }
+.item1 {  
+    background-color: #C0C0C0;
+    margin-left: 10px;
+    padding-bottom:5px;
+    margin-right: 5px;
+   
+ 
+  
+}
+.item2 {
+	margin-top:20px;
+    
+ 
+
+
+}
+.item3 {
+     background-color: whitesmoke;
+     margin-left: 10px;
+    margin-right: 5px;
+    
+}
+
+}
+
+.item4 {
+background-color: #C0C0C0;
+	
+}
+
+*/
+/*layout*/
+#head{
+    
+}
+#menyy{
+    margin-right: 1px;
+    
+}
+#filter{
+    background-color: #C0C0C0;
+    
+  
+}
+#tabel{
+        background-color: snow;
+ 
+        
+}
+#jalus{
+    margin-left: -37px;
+    
+}
+
+/*menüü*/
+.menu{
+    margin-top: 25px;
+
+}
+.menu a{	
+	color: black;
+    width: 150px;
+    margin-left: -20px;
+    border:1px;
+    border-style: outset;
+    border-color: lightgray;
+    font-weight: bold;
+   
+  
+ }
+.menu a:link{
+    background-color: #C0C0C0;
+    border-radius: 8px;
+    padding: 2px 4px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom:5px;	
+    font-size: 13px;  
+}
+
+.menu a:hover, .menu a:active {
+  background-color: gray;
+  color: white;
+}
+
+.search_menu{
+	margin-left:50px;
+    margin-top: 10px;
+	
+}
+.search_menu button{
+	margin-left:5px;
+	font-size:14px;
+	border-radius: 4px;
+	background-color:white;
+	border: 1px solid gray;
+
+}
+.search_menu button:hover{
+	background-color:gray;
+	color: white;
+}
+
+
+
+/*tabelid*/
+ .my-custom-scrollbar {
+position: relative;
+height: 600px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+
+#editable_table{
+	font-size:12px;
+  
+  
+}
+
+#editable_table th, #editable_table td {
+    padding: 2px;
+
+ 
+}
+#editable_table th{
+ top: 0; /* Don't forget this, required for the stickiness */
+  position: sticky;
+   background-color: snow; 
+}
+
+/*lehekülgede nummeratsioon*/
+#pagination a:hover {
+	background-color: #ccc;
+	
+}
+#pagination {
+	background-color: #C0C0C0;
+    margin-top: -10px;
+	
+}
+#pagination a {
+	padding:2px 4px;
+
+	color:black;
+	text-decoration: none;  
+	font-size:12px;	
+  }
+/*form/*/
+
+height
+.vorm{
+
+}	
+.vorm input[type=submit] {
+
+	padding: 4px 8px;
+	border: none;
+	border-radius: 4px;
+	background-color:white;
+	border: 1px solid gray;
+	margin-bottom:-50px;
+	font-size: 13px;  
+}
+.vorm input[type=text], .vorm select {
+
+  padding:4px 8px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 12px;  
+}
+
+.vorm{
+	font-size:12px;
+    
+}	
+
+/*andmete lisamine*/
+.add_data{
+	margin-left:50px;
+	
+}
+.add_data table{
+	margin-left:70px;
+	margin-top:50px;
+
+}
+.add_data input[type=text]{
+	width:100%;
+	padding:4px 8px;
+	border: 1px solid gray;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 12px;  
+}
+.add_data button{
+	font-size:14px;
+	border-radius: 4px;
+	background-color:white;
+	border: 1px solid gray;
+}
+.add_data button:hover{
+	background-color:gray;
+	color: white;
+}	
+/*laenutamine ja mahakandmine */
+#borrow{
+background-color: #C0C0C0;
+     margin: auto;
+    
+ 
+
+    
+}	
+/*back button */
+.back_but button{
+	font-size:14px;
+	border-radius: 2px;
+	background-color:gray;
+    color:white;
+	border: 1px solid gray;
+}
+.back_but button:hover{
+
+    
+}
+/*sisselogimine ja reg */
+ .form-group{
+            margin-top: 0px;
+}
+#login{ 
+    
+     border-radius: 15px;
+    background-color: snow; 
+    margin: auto; 
+    color: #000080;
+         
+}
+#loginform{
+     margin: 25px;
+
+}
+#login p{ 
+   margin-left:400px;
+/*printimine */
+}
