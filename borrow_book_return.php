@@ -51,7 +51,6 @@ $tagastus_kp = mysqli_real_escape_string($conn, $_POST['tagastus_kp']);
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
  
-    
 }
 
 ?>  

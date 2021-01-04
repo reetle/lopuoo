@@ -73,16 +73,11 @@ $result = mysqli_query($conn, "SELECT meedia_eksemplar FROM laenutus WHERE meedi
 
     ?>
     <form action=" " method="post">   
-        <fieldset>	 
+        <fieldset>	     
      
-     
-        <input type="text" name="uid" value="<?= $uid = $_SESSION["uid"];?>" style="visibility:hidden;">
-        <br>   
-       
-     
+        <input type="text" name="uid" value="<?= $uid = $_SESSION["uid"];?>" style="visibility:hidden;"> 
         <input type="text" name="nr" value="<?= $id ?>" style="visibility:hidden;" >
-        <br>   
-        
+ 
         <div class="form-group">
         <label for="kuupaev">Laenutus kuupäev</label>     
         <input type="date" name="laenutus_kp" value="<?php echo date('Y-m-d');?>" class="form-control" style="width:20%;">	
@@ -98,8 +93,6 @@ $result = mysqli_query($conn, "SELECT meedia_eksemplar FROM laenutus WHERE meedi
         </fieldset>
             </form>
      
-
-
  <?php
     $uid = $_SESSION["uid"]; 
     $id = $_GET["id"];
@@ -121,12 +114,8 @@ $result = mysqli_query($conn, "SELECT meedia_eksemplar FROM laenutus WHERE meedi
 	}
     
          mysqli_close($conn);
-	?>
+    ?>
   <br>
-  
-    
-         
-        
   <?php
 // remove all session variables
 session_unset();

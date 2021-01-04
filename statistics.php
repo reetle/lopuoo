@@ -53,20 +53,23 @@ $column=$_POST['column'];
 
 //Raamatukogu fond
 if ($_POST['column'] == 'fond') {
-	$sql= "SELECT 'Raamatud', COUNT(*) as C, SUM(meedia.kogus) as S, meedia_eksemplar.kogus * meedia_eksemplar.hind as summa FROM 
-(meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'RA'
+	$sql= "SELECT 'Raamatud', count(meedia.id) as C, count(meedia_eksemplar.id) as S, sum(meedia_eksemplar.hind) as summa 
+FROM (meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'RA'
 UNION
-SELECT 'Õpikud', COUNT(*) as C, SUM(meedia.kogus) as S, meedia_eksemplar.kogus * meedia_eksemplar.hind as summa FROM 
-(meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'op'
+SELECT 'Audio-video', count(meedia.id) as C, count(meedia_eksemplar.id) as S, sum(meedia_eksemplar.hind) as summa 
+FROM (meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'AV'
 UNION
-SELECT 'Audio-video', COUNT(*) as C, SUM(meedia.kogus) as S, meedia_eksemplar.kogus * meedia_eksemplar.hind as summa FROM 
-(meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'av'
+SELECT 'Õpikud', count(meedia.id) as C, meedia_eksemplar.kogus * count(meedia.id)* meedia_eksemplar.kogus as S, meedia_eksemplar.hind * meedia_eksemplar.kogus as summa 
+FROM (meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'OP'
 UNION
-SELECT 'Töövihikud', COUNT(*) as C, SUM(meedia.kogus) as S, meedia_eksemplar.kogus * meedia_eksemplar.hind as summa FROM 
-(meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'tv'
+SELECT 'Töövihikud', count(meedia.id) as C, meedia_eksemplar.kogus * count(meedia.id)* meedia_eksemplar.kogus as S, meedia_eksemplar.hind * meedia_eksemplar.kogus as summa 
+FROM (meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'TV'
 UNION
-SELECT 'Metoodiline kirjandus', COUNT(*) as C, SUM(meedia.kogus) as S, meedia_eksemplar.kogus * meedia_eksemplar.hind as summa FROM 
-(meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'mk';" ;
+SELECT 'Metoodiline kirjandud', count(meedia.id) as C, meedia_eksemplar.kogus * count(meedia.id)* meedia_eksemplar.kogus as S, meedia_eksemplar.hind * meedia_eksemplar.kogus as summa 
+FROM (meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id) where meedia_liik like 'MK'
+UNION
+SELECT 'KOKKU', count(meedia.id) as C, count(meedia_eksemplar.id), sum(meedia_eksemplar.hind) as summa 
+FROM (meedia_eksemplar right JOIN meedia ON meedia_eksemplar.meedia=meedia.id)" ;
 	$result = mysqli_query($conn, $sql);
 	
 	
@@ -78,7 +81,7 @@ SELECT 'Metoodiline kirjandus', COUNT(*) as C, SUM(meedia.kogus) as S, meedia_ek
 	<td>'.$row["Raamatud"].'</td>
 	<td>'.$row["C"].'</td>
 	<td>'.$row["S"].'</td>
-	<td>'.$row["S"].'</td>
+	<td>'.$row["summa"].'</td>
 
   </tr> '; }
    echo "</table>";

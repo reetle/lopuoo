@@ -28,9 +28,7 @@ if (isset($_POST['login'])) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
-<body>
-   
-
+<body> 
 <div class="container">
 	
 	<div class="row" style="margin-top:175px;" >
@@ -40,7 +38,7 @@ if (isset($_POST['login'])) {
                     <legend>Sisene</legend>
 					<div class="form-group">
 						<label for="name" >Email</label>
-						<input type="text" name="email" placeholder="Sisesta email" required class="form-control" />
+						<input type="email" name="email" placeholder="Sisesta email" required class="form-control" />
 					</div>	
 					<div class="form-group">
 						<label for="name">Salasõna</label>
@@ -56,14 +54,7 @@ if (isset($_POST['login'])) {
             
            <p> Ei ole kasutajat? <a href="register.php">Registreeri</a></p>
 		</div>
-	</div>
-
-		
-		
-
-		
-		
-	
+	</div>	
 </div>
     </body>
 </html>

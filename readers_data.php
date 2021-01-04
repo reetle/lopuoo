@@ -112,7 +112,7 @@ $sql= "SELECT lugeja.id, klass.klass as k, lugeja.perekonnanimi, lugeja.eesnimi,
 lugeja.aadress, lugeja.linn, lugeja.maakond, lugeja.postiindeks, lugeja.telefon, 
 lugeja.markused 
 FROM 
-(lugeja LEFT JOIN klass ON lugeja.klass = klass.id) where $column like '%$search%' " ;}
+(lugeja LEFT JOIN klass ON lugeja.klass = klass.id) WHERE $column LIKE '%$search%' " ;}
 
 $result = mysqli_query($conn, $sql) or die("error:".mysqli_error($conn));
 

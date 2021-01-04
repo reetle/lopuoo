@@ -1,7 +1,6 @@
 <?php 
-
 include_once("config.php");
-//https://webdamn.com/login-and-registration-script-with-php-mysql/
+
 session_start();
 if(isset($_SESSION['userid'])) {
 	header("Location: index.php");

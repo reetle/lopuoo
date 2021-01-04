@@ -6,18 +6,20 @@ if(isset($_POST['Submit']))
 {
 	$id = $_POST['id'];
     
-	$meedia_liik = $_POST['meedia_liik'];
-	$pealkiri = $_POST['pealkiri'];
-	$klass = $_POST['klass'];
-    $andmekandja = $_POST['andmekandja'];
-    $autor = $_POST['autor'];
-	$aasta = $_POST['aasta'];
-	$liik = $_POST['liik'];
-	$keel= $_POST['keel'];
-	$valjaandja = $_POST['valjaandja'];
-	$riiul = $_POST['riiul'];
-	$marksona = $_POST['marksona'];
-	$markused = $_POST['markused'];	
+	$meedia_liik =mysqli_real_escape_string($conn, $_POST['meedia_liik']);
+		$pealkiri =mysqli_real_escape_string($conn, $_POST['pealkiri']);
+		$klass = mysqli_real_escape_string($conn, $_POST['klass']);
+        $andmekandja = mysqli_real_escape_string($conn, $_POST['andmekandja']);
+        $autor = mysqli_real_escape_string($conn, $_POST['autor']);
+		$aasta = mysqli_real_escape_string($conn, $_POST['aasta']);
+		$liik = mysqli_real_escape_string($conn, $_POST['liik']);
+		$keel= mysqli_real_escape_string($conn, $_POST['keel']);
+		$valjaandja = mysqli_real_escape_string($conn, $_POST['valjaandja']);
+		//$kogus = mysqli_real_escape_string($conn, $_POST['kogus']);
+		$riiul = mysqli_real_escape_string($conn, $_POST['riiul']);
+		$marksona = mysqli_real_escape_string($conn, $_POST['marksona']);
+		$markused = mysqli_real_escape_string($conn, $_POST['markused']);
+	
 
 	//update meedia
 	$result = mysqli_query($conn, "UPDATE meedia
@@ -25,12 +27,13 @@ if(isset($_POST['Submit']))
     SET 
 	meedia_liik='$meedia_liik', 
     pealkiri='$pealkiri',  
-    
-   
+    andmekandja='$andmekandja', 
+    valjaandja='$valjaandja', 
 	klass='$klass',    
 	autor='$autor',
 	aasta='$aasta',
- 
+    liik='$liik',
+    keel='$keel',
 
 
 	marksona='$marksona', 
@@ -43,17 +46,14 @@ echo'
 <?php
 $id = $_GET['id'];
 
-$sql= "SELECT meedia.meedia_liik, meedia.klass, meedia.andmekandja, meedia.id, meedia.pealkiri, meedia.autor, meedia.aasta, 
-liik.nimi as l, keel.nimi as k, valjaandja.nimi as v, 
-meedia.riiul, meedia.marksona, meedia.markused 
+$sql= "SELECT meedia_liik, klass, andmekandja, id, pealkiri, autor, aasta, keel, liik, valjaandja,
+ 
+riiul, marksona, markused 
     FROM meedia 
-        LEFT join liik ON meedia.liik = liik.id
-        LEFT JOIN keel ON meedia.keel = keel.id
-        LEFT JOIN meedia_eksemplar ON meedia.id = meedia_eksemplar.meedia 
-        LEFT JOIN valjaandja ON meedia.valjaandja =valjaandja.id
-WHERE meedia.id=$id " ;
+       
+WHERE id=$id " ;
 
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql)or die("error:".mysqli_error($conn));
 
 while($row = mysqli_fetch_array($result))
 {   $meedia_liik = $row['meedia_liik'];
@@ -62,9 +62,9 @@ while($row = mysqli_fetch_array($result))
     $andmekandja = $row['andmekandja'];
 	$autor = $row['autor'];
 	$aasta = $row['aasta'];
-	$liik = $row['l'];
-	$keel= $row['k'];
-	$valjaandja = $row['v'];
+	$liik = $row['liik'];
+	$keel= $row['keel'];
+	$valjaandja = $row['valjaandja'];
 	$riiul = $row['riiul'];
 	$marksona = $row['marksona'];
 	$markused = $row['markused'];
@@ -152,7 +152,7 @@ while($row = mysqli_fetch_array($result))
             $query = "SELECT * FROM liik";
             $result = mysqli_query($conn, $query); ?>
         <select id="liik" name="liik" class="form-control form-control-sm"  style="width:100%;">
-           
+            <option value=""><?php echo $liik;?>   </option> 
         <?php
             while ($row = mysqli_fetch_array($result)) {
                  echo "<option value='" . $row['id'] . "'>" . $row['markused'] . "</option>";}
