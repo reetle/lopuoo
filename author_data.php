@@ -198,7 +198,8 @@ $(document).ready(function(){
       }
      });
  
-});  
+}); 
+    
  </script>
  <!-- tabelite headerite sorteerimiseks https://www.w3schools.com/howto/howto_js_sort_table.asp-->
 <script src="js/sort.js"></script>
