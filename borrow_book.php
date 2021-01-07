@@ -28,7 +28,7 @@ session_start();
 <div class="row" id="head">
 <div class="col-lg" style="background-color:snow; font-size:12px;"   >
  <br>
-<p> <strong>Kas soovita antud teost laenutada:</strong></p>
+<p> <strong>Kas soovid antud teost laenutada:</strong></p>
 <?php   
 $uid = $_SESSION["uid"];
 
@@ -67,10 +67,11 @@ $result = mysqli_query($conn, "SELECT meedia_eksemplar FROM laenutus WHERE meedi
  if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_assoc($result)) {
     echo "<p> <strong>Antud teos on juba välja laenutatud!</strong></p> " ;}
- }
+  
+}
      else{ 
-         "Antud teos on vaba laenutamiseks" ;}
-
+         " <p> <strong> Antud teos on vaba laenutamiseks"  ;}
+     
     ?>
     <form action=" " method="post">   
         <fieldset>	     

@@ -56,7 +56,7 @@ include_once("library_fund.php");
 <!--otsimise ja filtreerimise menüü-->
   <div class="col-lg-10" style="margin-bottom:33rem; "id="filter">
 	<div class="search_menu">
-		<button onclick="window.location.href='book_add.php.php';">Lisa uus</button>
+		<button onclick="window.location.href='book_add.php';">Lisa uus</button>
         <button type="submit" value="click" onclick="printDiv()">Prindi </button>
 		<button type="submit" form="form2" name="export" class="export" >Ekspordi CSV</button>
 		<button onclick="window.location.href='textbook_data.php';">Tühista filtreerimine</button>
